@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link href="css/style.css" rel="stylesheet"/>
+		<title>Minesweeper</title>
+	</head>
+	<body>
+		<header class="main-header">
+			<h1>Minesweeper</h1>
+			<nav class="main-header__nav">
+				<ul class="main-header__ul">
+					<li>
+						<select id="difficulty-select" name="Difficulty">
+							<option value="EASY">Easy</option>
+							<option value="INTERMEDIATE">Intermediate</option>
+							<option value="HARD">Hard</option>
+						</select>
+					</li>
+					<li>
+						<select id="board-size-select" name="Board Size">
+							<!-- Easy Board Sizes -->
+							<option class="valid-board-size" value="8x8">8 x 8</option>
+							<option class="valid-board-size" value="9x9">9 x 9</option>
+							<option class="valid-board-size" value="10x10">10 x 10</option>
+
+							<!-- Intermediate Board Sizes -->
+							<option class="invalid-board-size" value="13x15">13 x 15</option>
+							<option class="invalid-board-size" value="16x16">16 x 16</option>
+
+							<!-- Hard Board Sizes -->
+							<option class="invalid-board-size" value="16x30">16 x 30</option>
+							<option class="invalid-board-size" value="30x16">30 x 16</option>
+						</select>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main class="main-content-area">
+			<div class="game-container">
+				<div class="game-container__top">
+					<div class="screen" id="bombs-screen">
+						<h1>10</h1>
+					</div> 
+					<button class="game-state-btn"><img class="cell-icon" src="img/smiley-icon.png"/></button>
+					<div class="screen" id="time-screen">
+						<h1>0</h1>
+					</div> 
+				</div>
+
+				<div class="game-container__bottom game-grid-8x8">
+				</div>
+			</div>
+		</main>
+		<div class="modal-area">
+			<div class="modal-area__enter">
+				<div class="modal-area__enter__top">
+					<span class="x-mark">&times;</span>
+				</div>
+				<div class="modal-area__enter__middle">
+					<h1>You Won!</h1>
+				</div>
+				<div class="modal-area__enter__bottom">
+					<div class="enter__bottom__left">
+						<h1>Difficulty</h1>
+						<p></p>
+					</div>
+					<div class="enter__bottom__middle">
+						<h1>Dimension</h1>
+						<p></p>
+					</div>
+					<div class="enter__bottom__right">
+						<h1>Time</h1>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/main.js"></script>
+	</body>
+</html>
