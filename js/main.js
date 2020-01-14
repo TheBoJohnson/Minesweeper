@@ -1,4 +1,4 @@
-// Emum Objects for Global Use
+/* Emum Objects for Global Use */
 const cellEnum = Object.freeze({
 	"E": 0,
 	"B": 1
@@ -20,6 +20,9 @@ const difficultyEnum = Object.freeze({
 	"INTERMEDIATE": 1,
 	"HARD": 2
 });
+
+
+/* Classes for displaying and managing the GameBoard and State */
 
 class Dimension {
 	constructor(boardWidth, boardHeight) {
@@ -317,7 +320,6 @@ class GameInstance {
 		showNewScoreModal(this.difficulty, this.boardWidth, this.boardHeight, this.currentSeconds);
 	}
 
-	// TODO: Fully implement processBombPress()
 	processBombPress(cellID) {
 		this.stopTimer();
 		this.isGameOver = true;
@@ -327,7 +329,6 @@ class GameInstance {
 		this.updateGameBoard();
 	}
 
-	// TODO: Fully implement updateGameBoard
 	updateGameBoard() {
 		if (!this.isGameOver) {
 			this.gameBoard.cellArray.forEach((cell) => {
@@ -375,7 +376,6 @@ class GameInstance {
 	revealAllBombs() {
 		this.gameBoard.cellArray.forEach((cell) => {
 			if (cell.currentState === cellEnum["B"]) {
-				//document.querySelector(`#cell-${cell.id}`).innerText = "B";
 				document.querySelector(`#cell-${cell.id}`).innerHTML = "<img class='cell-icon' src='img/bomb-icon.png'/>";
 			}
 		});
@@ -499,7 +499,7 @@ boardSelect.addEventListener("change", (event) => {
 	gameObject.displayGameBoard();
 });
 
-// Modal UI Functions and Event Listeners
+// Modal UI Variables
 const modalArea = document.querySelector(".modal-area");
 const modalAreaEnter = document.querySelector(".modal-area__enter");
 const modalCloseBtn = document.querySelector(".x-mark");
@@ -508,6 +508,7 @@ const dimensionLabel = document.querySelector(".enter__bottom__middle p");
 const timeLabel = document.querySelector(".enter__bottom__right p");
 
 
+// Functions for UI Event Listeners
 function showNewScoreModal(gameDiff, boardWidth, boardHeight, gameTime) {
 	modalArea.style.display = "flex";
 	modalAreaEnter.style.display = "block";
@@ -551,7 +552,7 @@ function closeNewScoreModal() {
 	modalAreaEnter.style.display = "none";
 }
 
-// Initial Config
+// Initial Game Object and Setup
 const gameObject = new GameInstance();
 gameObject.importGameSettings(new GameSettings(difficultyEnum["EASY"], new Dimension(8, 8)));
 gameObject.displayGameBoard();
